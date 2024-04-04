@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordly</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="{% static 'script.js' %}" type="module"></script>
+    {{ now_player|json_script:"now_player" }}
+    {{ letters|json_script:"letters" }}
+    {{ p0_words|json_script:"p0_words" }}
+    {{ p1_words|json_script:"p1_words" }}
+    {{ winner|json_script:"winner" }}
+    {{ winword|json_script:"winword" }}
+
+</head>
+
+<body>
+    <h1> Wordly </h1>
+
+    <div id="game-board">
+
+    </div>
+    <div class="qwerty">
+        <div id="first">
+            <div class="letter-box" name="й">Й</div>
+            <div class="letter-box" name="ц">Ц</div>
+            <div class="letter-box" name="у">У</div>
+            <div class="letter-box" name="к">К</div>
+            <div class="letter-box" name="е">Е</div>
+            <div class="letter-box" name="н">Н</div>
+            <div class="letter-box" name="г">Г</div>
+            <div class="letter-box" name="ш">Ш</div>
+            <div class="letter-box" name="щ">Щ</div>
+            <div class="letter-box" name="з">З</div>
+            <div class="letter-box" name="х">Х</div>
+            <div class="letter-box" name="ъ">Ъ</div>
+        </div>
+        <div id="second">
+            <div class="letter-box" name="ф">Ф</div>
+            <div class="letter-box" name="ы">Ы</div>
+            <div class="letter-box" name="в">В</div>
+            <div class="letter-box" name="а">А</div>
+            <div class="letter-box" name="п">П</div>
+            <div class="letter-box" name="р">Р</div>
+            <div class="letter-box" name="о">О</div>
+            <div class="letter-box" name="л">Л</div>
+            <div class="letter-box" name="д">Д</div>
+            <div class="letter-box" name="ж">Ж</div>
+            <div class="letter-box" name="э">Э</div>
+        </div>
+        <div id="third">
+            <div class="letter-box" name="я">Я</div>
+            <div class="letter-box" name="ч">Ч</div>
+            <div class="letter-box" name="с">С</div>
+            <div class="letter-box" name="м">М</div>
+            <div class="letter-box" name="и">И</div>
+            <div class="letter-box" name="т">Т</div>
+            <div class="letter-box" name="ь">Ь</div>
+            <div class="letter-box" name="б">Б</div>
+            <div class="letter-box" name="ю">Ю</div>
+            <div class="letter-box" name="ё">Ё</div>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <button onclick="navigator.clipboard.writeText(document.URL.split('/')[5]);">Скопировать ID лобби</button>
+</footer>
+
+</html>
